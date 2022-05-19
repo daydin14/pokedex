@@ -20,7 +20,7 @@ app.get("/pokemon/:id", (req, res) => {
   const { id, name, img, type, stats, moves, damages, misc } =
     pokemon[req.params.id];
   res.render("show.ejs", {
-    pokemon: { id, name, type, stats, moves, damages, misc },
+    pokemon: { id, name, img, type, stats, moves, damages, misc },
   });
 });
 // New

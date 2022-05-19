@@ -1,10 +1,19 @@
 <%- include("./partials/head.ejs") %>
 <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>IMG</th>
+  </tr>
   <% for(let i = 0; i < pokemon.length; i++) { %>
   <tr>
     <td><%= pokemon[i].id %></td>
-    <td><%= pokemon[i].name %></td>
-    <td><img src="<%= pokemon[i].img %>" width="50px" /></td>
+    <td><a href="/pokemon/<%= i %>"><%= pokemon[i].name %></a></td>
+    <td>
+      <a href="/pokemon/<%= i %>">
+        <img src="<%= pokemon[i].img %>" width="50px" />
+      </a>
+    </td>
   </tr>
   <% } %>
 </table>
