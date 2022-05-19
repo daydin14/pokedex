@@ -43,6 +43,7 @@ app.post("/pokemon/:id", (req, res) => {
 });
 // Update
 app.put("/pokemon/:id", (req, res) => {
+  pokemon[req.params.id] = req.body;
   res.redirect("/pokemon");
 });
 // Destroy/Delete
