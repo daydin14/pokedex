@@ -1,1 +1,11 @@
-<%- include("./partials/head.ejs") %> <%- include("./partials/footer.ejs") %>
+<%- include("./partials/head.ejs") %>
+<table>
+  <% for(let i = 0; i < pokemon.length; i++) { %>
+  <tr>
+    <td><%= pokemon[i].id %></td>
+    <td><%= pokemon[i].name %></td>
+    <td><img src="<%= pokemon[i].img %>" width="50px" /></td>
+  </tr>
+  <% } %>
+</table>
+<%- include("./partials/footer.ejs") %>
