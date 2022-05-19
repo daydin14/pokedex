@@ -16,6 +16,10 @@ const methodOverride = require("method-override");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
+// JSON
+app.get("/", (req, res) => {
+  res.send(pokemon);
+});
 // Index
 app.get("/pokemon", (req, res) => {
   res.render("index.ejs", { pokemon: pokemon });
