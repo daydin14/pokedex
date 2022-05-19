@@ -30,7 +30,7 @@ app.get("/pokemon/:id", (req, res) => {
 });
 // New
 app.get("/pokemon/new", (req, res) => {
-  res.render();
+  res.render("new.ejs");
 });
 // Edit
 app.get("/pokemon/:id/edit", (req, res) => {
