@@ -38,6 +38,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 });
 // Create
 app.post("/pokemon/:id", (req, res) => {
+  pokemon.push(req.body);
   res.redirect("/pokemon");
 });
 // Update
