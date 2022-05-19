@@ -18,11 +18,15 @@ app.use(methodOverride("_method"));
 
 // Index
 app.get("/pokemon", (req, res) => {
-  res.render();
+  res.render("index.ejs", { pokemon: pokemon });
 });
 // Show
 app.get("/pokemon/:id", (req, res) => {
-  res.render();
+  const { id, name, img, type, stats, moves, damages, misc } =
+    pokemon[req.params.id];
+  res.render("show.ejs", {
+    pokemon: { id, name, type, stats, moves, damages, misc },
+  });
 });
 // New
 app.get("/pokemon/new", (req, res) => {
