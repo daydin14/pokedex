@@ -1,12 +1,3 @@
-/*
-index
-show
-new
-edit
-create
-update
-delete
-*/
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -58,3 +49,5 @@ app.delete("pokemon/:id", (req, res) => {
   pokemon.splice(req.params.id, 1);
   res.redirect("/pokemon");
 });
+
+app.listen(port);
