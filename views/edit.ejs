@@ -1,1 +1,12 @@
-<%- include("./partials/head.ejs") %> <%- include("./partials/footer.ejs") %>
+<%- include("./partials/head.ejs") %> 
+<h1>Edit <strong><%=pokemon.name%></strong> Page</h1>
+<img src="<%=pokemon.img%>"><br><br>
+<form action="/pokemon/<%=index%>?_method=PUT" method="POST">
+
+    ID: <input type="number" name="id" value="<%=pokemon.id%>"/><br>
+    Name: <input type="text" name="name" value="<%=pokemon.name%>"/><br>
+
+    <input type="submit" name="" value="Submit Changes"/>
+</form>
+<%- include("./partials/footer.ejs") %>
+<!--id, name, img, type, stats, moves, damages, misc -->
