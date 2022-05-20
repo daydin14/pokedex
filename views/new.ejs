@@ -1,1 +1,9 @@
-<%- include("./partials/head.ejs") %> <%- include("./partials/footer.ejs") %>
+<%- include("./partials/head.ejs") %> 
+<h1>New Pokemon Page</h1>
+<form action="/pokemon" method="POST">
+    ID: <input type="number" name="id" placeholder="Enter Your Pokemon ID Number"><br>
+    Name: <input type="text" name="name" placeholder="Enter Your Pokemon Name"/><br>
+
+    <input type="submit" name="" value="Submit Changes"/>
+</form>
+<%- include("./partials/footer.ejs") %>
