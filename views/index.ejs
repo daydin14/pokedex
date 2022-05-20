@@ -1,5 +1,6 @@
 <%- include("./partials/head.ejs") %>
 <table>
+  <a href="/pokemon/new"><button><strong>Add New Pokemon</strong></button></a>
   <tr>
     <th>ID</th>
     <th>Name</th>
@@ -14,6 +15,13 @@
         <img src="<%= pokemon[i].img %>" width="50px" />
       </a>
     </td>
+    <td><a href="/pokemon/<%=i %>/edit"><button>Edit</button></a></td>
+
+    <form action="/pokemon/<%=i %>?_method=DELETE" method="POST">
+      <td>
+        <input type="submit" value="Delete">
+      </td>
+    </form>
   </tr>
   <% } %>
 </table>

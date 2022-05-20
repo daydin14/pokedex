@@ -16,11 +16,19 @@ app.get("/", (req, res) => {
 app.get("/pokemon/new", (req, res) => {
   res.render("new.ejs");
 });
+// Create
+app.post("/pokemon", (req, res) => {
+  const {id, name} = req.body;
+  let newPokemon = {id,name};
+  pokemon.push(newPokemon);
+  res.redirect("/pokemon");
+});
+
+
 // Index
 app.get("/pokemon", (req, res) => {
   res.render("index.ejs", { pokemon: pokemon });
 });
-
 // Show
 app.get("/pokemon/:id", (req, res) => {
   const { id, name, img, type, stats, moves, damages, misc } =
@@ -29,13 +37,7 @@ app.get("/pokemon/:id", (req, res) => {
     pokemon: { id, name, img, type, stats, moves, damages, misc },
   });
 });
-// Create
-app.post("/pokemon", (req, res) => {
-  const {id, name} = req.body;
-  let newPokemon = {id,name};
-  pokemon.push(newPokemon);
-  res.redirect("/pokemon");
-});
+
 // Update
 app.put("/pokemon/:id", (req, res) => {
   pokemon[req.params.id].id = req.body.id;
@@ -49,8 +51,9 @@ app.get("/pokemon/:id/edit", (req, res) => {
     index: req.params.id,
   });
 });
+
 // Destroy/Delete
-app.delete("pokemon/:id", (req, res) => {
+app.delete("/pokemon/:id", (req, res) => {
   pokemon.splice(req.params.id, 1);
   res.redirect("/pokemon");
 });
