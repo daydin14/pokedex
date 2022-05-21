@@ -1,11 +1,107 @@
-<%- include("./partials/head.ejs") %> 
-<h1>Edit <%=pokemon.name%> Page</h1>
-<img src="<%=pokemon.img%>"><br><br>
+<%- include("./partials/head.ejs") %>
+<h1>Edit Pokemon: <%=pokemon.name%></h1>
+<img src="<%=pokemon.img%>" /><br /><br />
 <form action="/pokemon/<%=index%>?_method=PUT" method="POST">
+  <br />
+  ID: <input type="number" name="id" placeholder="<%=pokemon.id%>" /><br />
+  Name: <input type="text" name="name" placeholder="<%=pokemon.name%>" /><br />
+  <% if(pokemon.type.length === 2) { %> Type 1:<input
+    type="text"
+    name="type1"
+    placeholder="<%=pokemon.type[0]%>"
+  />
+  Type 2:<input type="text" name="type2" placeholder="<%=pokemon.type[1]%>" />
+  <% } else { %> Type 1:<input
+    type="text"
+    name="type1"
+    placeholder="<%=pokemon.type[0]%>"
+  />
+  <% } %>
+  <br /><br />
 
-    ID: <input type="number" name="id" value="<%=pokemon.id%>"/><br>
-    Name: <input type="text" name="name" value="<%=pokemon.name%>"/><br>
+  <table>
+    <th>Stats:</th>
+    <tr>
+      <td>HP: <%=pokemon.stats.hp%> -></td>
+      <td><input type="text" name="hp" /></td>
+    </tr>
+    <tr>
+      <td>Attack: <%=pokemon.stats.attack%> -></td>
+      <td><input type="text" name="attack" /></td>
+    </tr>
+    <tr>
+      <td>Defense: <%=pokemon.stats.defense%> -></td>
+      <td><input type="text" name="defense" /></td>
+    </tr>
+    <tr>
+      <td>Sp. Attack: <%=pokemon.stats.spattack%> -></td>
+      <td><input type="text" name="spattack" /></td>
+    </tr>
+    <tr>
+      <td>Sp. Defense: <%=pokemon.stats.spdefense%> -></td>
+      <td><input type="text" name="spdefense" /></td>
+    </tr>
+    <tr>
+      <td>Speed: <%=pokemon.stats.speed%> -></td>
+      <td><input type="text" name="speed" /></td>
+    </tr>
+  </table>
 
-    <input type="submit" name="" value="Submit Changes"/>
+  <br />
+  <table>
+    <th>Change About <%=pokemon.name%></th>
+    <tr>
+      <td>Classification:</td>
+      <td>
+        <input
+          type="text"
+          name="classification"
+          placeholder="<%=pokemon.misc.classification%>"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Height:</td>
+      <td>
+        <input
+          type="text"
+          name="height"
+          placeholder="<%=pokemon.misc.height%>"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Weight:</td>
+      <td>
+        <input
+          type="text"
+          name="weight"
+          placeholder="<%=pokemon.misc.weight%>"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Capture Rate:</td>
+      <td>
+        <input
+          type="text"
+          name="capturerate"
+          placeholder="<%=pokemon.misc.capturerate%>"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Egg Steps:</td>
+      <td>
+        <input
+          type="text"
+          name="eggsteps"
+          placeholder="<%=pokemon.misc.eggsteps%>"
+        />
+      </td>
+    </tr>
+  </table>
+
+  <input type="submit" name="" value="Submit Changes" />
 </form>
 <%- include("./partials/footer.ejs") %>

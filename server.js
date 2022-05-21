@@ -18,12 +18,11 @@ app.get("/pokemon/new", (req, res) => {
 });
 // Create
 app.post("/pokemon", (req, res) => {
-  const {id, name} = req.body;
-  let newPokemon = {id,name};
+  const { id, name } = req.body;
+  let newPokemon = { id, name };
   pokemon.push(newPokemon);
   res.redirect("/pokemon");
 });
-
 
 // Index
 app.get("/pokemon", (req, res) => {
@@ -42,6 +41,7 @@ app.get("/pokemon/:id", (req, res) => {
 app.put("/pokemon/:id", (req, res) => {
   pokemon[req.params.id].id = req.body.id;
   pokemon[req.params.id].name = req.body.name;
+  pokemon[req.params.id].type[0] = req.body.type1;
   res.redirect("/pokemon");
 });
 // Edit
