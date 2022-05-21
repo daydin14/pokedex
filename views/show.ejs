@@ -1,4 +1,69 @@
 <%- include("./partials/head.ejs") %>
-<h1><%=pokemon.id%> <%=pokemon.name%></h1>
-<img src="<%= pokemon.img %>" width="50px" />
+<a href="/pokemon/"><button>Back to Pokedex</button></a>
+
+<h1><%=pokemon.name%> #<%=pokemon.id%></h1>
+<img src="<%= pokemon.img %>" width="50px" /><br />
+
+<h4>Types:</h4>
+<% if(pokemon.type.length === 2) { %>
+<button><%=pokemon.type[0]%></button>
+<button><%=pokemon.type[1]%></button>
+<% } else { %>
+<button><%=pokemon.type[0]%></button>
+<% } %>
+
+<br /><br /><br />
+<table>
+  <th>Stats</th>
+  <tr>
+    <td>HP</td>
+    <td><%=pokemon.stats.hp%></td>
+  </tr>
+  <tr>
+    <td>Attack</td>
+    <td><%=pokemon.stats.attack%></td>
+  </tr>
+  <tr>
+    <td>Defense</td>
+    <td><%=pokemon.stats.defense%></td>
+  </tr>
+  <tr>
+    <td>Sp. Attack</td>
+    <td><%=pokemon.stats.spattack%></td>
+  </tr>
+  <tr>
+    <td>Sp. Defense</td>
+    <td><%=pokemon.stats.spdefense%></td>
+  </tr>
+  <tr>
+    <td>Speed</td>
+    <td><%=pokemon.stats.speed%></td>
+  </tr>
+</table>
+
+<br /><br /><br />
+<table>
+  <th>About <%=pokemon.name%>:</th>
+  <tr>
+    <td>Classification</td>
+    <td><strong><%=pokemon.misc.classification%></strong></td>
+  </tr>
+  <tr>
+    <td>Height</td>
+    <td><%=pokemon.misc.height%></td>
+  </tr>
+  <tr>
+    <td>Weight</td>
+    <td><%=pokemon.misc.weight%></td>
+  </tr>
+  <tr>
+    <td>Capture Rate</td>
+    <td><%=pokemon.misc.capturerate%></td>
+  </tr>
+  <tr>
+    <td>Egg Steps</td>
+    <td><%=pokemon.misc.eggsteps%></td>
+  </tr>
+</table>
+
 <%- include("./partials/footer.ejs") %>
