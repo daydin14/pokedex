@@ -18,6 +18,7 @@ app.get("/pokemon/new", (req, res) => {
 });
 // Create
 app.post("/pokemon", (req, res) => {
+  // use unshift for adding pokemon when you decide to update this code
   const { id, name } = req.body;
   let newPokemon = { id, name };
   pokemon.push(newPokemon);
